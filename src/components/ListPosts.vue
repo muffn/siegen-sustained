@@ -21,7 +21,7 @@ function getDate(date: string) {
 function getHref(post: Post) {
   if (post.data.redirect)
     return post.data.redirect
-  return `/posts/${post.slug}`
+  return `/siegen-sustained/posts/${post.slug}`
 }
 
 function getTarget(post: Post) {
