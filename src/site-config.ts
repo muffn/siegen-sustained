@@ -45,19 +45,19 @@ export const siteConfig = {
     navLinks: [
       {
         text: 'Blog',
-        href: '/blog',
+        href: '/siegen-sustained/blog',
       },
       {
         text: 'Notes',
-        href: '/blog/notes',
+        href: '/siegen-sustained/blog/notes',
       },
       {
         text: 'Talks',
-        href: '/blog/talks',
+        href: '/siegen-sustained/blog/talks',
       },
       {
         text: 'Projects',
-        href: '/projects',
+        href: '/siegen-sustained/projects',
       },
     ],
   },
@@ -65,15 +65,15 @@ export const siteConfig = {
     blogLinks: [
       {
         text: 'Blog',
-        href: '/blog',
+        href: '/siegen-sustained/blog',
       },
       {
         text: 'Notes',
-        href: '/blog/notes',
+        href: '/siegen-sustained/blog/notes',
       },
       {
         text: 'Talks',
-        href: '/blog/talks',
+        href: '/siegen-sustained/blog/talks',
       },
     ],
   },
@@ -81,11 +81,11 @@ export const siteConfig = {
     navLinks: [
       {
         text: 'Posts Props',
-        href: '/posts-props',
+        href: '/siegen-sustained/posts-props',
       },
       {
         text: 'Markdown Style',
-        href: '/md-style',
+        href: '/siegen-sustained/md-style',
       },
       {
         text: 'View on Astro',
