@@ -6,7 +6,7 @@ import { getPosts } from '@/utils/posts'
 
 export async function getStaticPaths() {
   const paths = siteConfig.page.blogLinks.map((nav) => {
-    const href = nav.href.replace('/blog', '')
+    const href = nav.href.replace('/siegen-sustained/blog', '')
     return {
       params: {
         path: href === '' ? undefined : href.replace(/^\/+|\/+$/g, ''),
