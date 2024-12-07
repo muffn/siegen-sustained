@@ -39,7 +39,7 @@ export const siteConfig = {
   ],
   header: {
     logo: {
-      src: '/favicon.svg',
+      src: '/siegen-sustained/favicon.svg',
       alt: 'Logo Image',
     },
     navLinks: [
