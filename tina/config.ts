@@ -64,12 +64,17 @@ export default defineConfig({
 					{
 						type: 'string',
 						name: 'tags',
-						required: true,
+						required: true, //does not work see https://github.com/tinacms/tinacms/issues/5220
 						label: 'Tags',
 						description: 'Tags for this post',
 						list: true,
 						ui: {
-							component: 'tags'
+							component: 'tags',
+							validate: (value) => {
+								if (!value || value.length === 0) {
+									return 'At least one tag is required'
+								}
+							}
 						}
 					},
 					{
