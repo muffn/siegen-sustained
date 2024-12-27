@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://siegen-sustained.de/sitemap-index.xml
