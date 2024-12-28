@@ -10,12 +10,12 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-	site: 'https://siegen-sustained.de', // Write here your website url
-	author: 'Your Name', // Site author
-	title: 'Astro Theme OpenBlog', // Site title.
-	description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', // Description to display in the meta tags
-	lang: 'en-GB',
-	ogLocale: 'en_GB',
-	shareMessage: 'Share this post', // Message to share a post on social media
+	site: 'https://siegen-sustained.de',
+	author: 'Muffn',
+	title: 'Siegen Sustained',
+	description: 'Ein Blog für die Siegen Sustained Warhammer40k Tabletop Community ', // Description to display in the meta tags
+	lang: 'de-DE',
+	ogLocale: 'de_DE',
+	shareMessage: 'Diesen Beitrag teilen', // Message to share a post on social media
 	paginationSize: 6 // Number of posts per page
 }
