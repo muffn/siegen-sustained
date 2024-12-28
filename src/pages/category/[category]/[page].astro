@@ -35,6 +35,22 @@ const posts = page.data
 <BaseLayout title={params.category}>
 	<TitlePage title={unsluglifyNameCategory} />
 	<ListCategories activeCategory={params.category} />
+	{
+		params.category === 'das-fischkrieg-turnier' && (
+			<p>
+				Hier könnte ihre Werbung stehen! <br /> Alternativ steht hier ein Text der das Fischkrieg
+				turnier beschreibt, ist wohl auch okay
+			</p>
+		)
+	}
+	{
+		params.category === 'die-turniertische' && (
+			<p>
+				Hier könnte ihre Werbung stehen! <br /> Alternativ steht hier ein Text der die Planeten
+				beschreibt, ist wohl auch okay
+			</p>
+		)
+	}
 	<ListPosts posts={posts} />
 	<Pagination page={page} />
 </BaseLayout>
