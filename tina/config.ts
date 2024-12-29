@@ -41,7 +41,6 @@ export default defineConfig({
 						name: 'heroImage',
 						description: 'The image used for the cover of the post'
 					},
-
 					{
 						type: 'string',
 						required: true,
@@ -112,6 +111,13 @@ export default defineConfig({
 								]
 							}
 						]
+					},
+					{
+						type: 'image',
+						label: 'Gallery Images',
+						name: 'galleryImages',
+						list: true,
+						description: 'The images used in the end of the post'
 					}
 				]
 			}

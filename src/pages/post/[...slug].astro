@@ -58,6 +58,16 @@ const disqusEnabled = disqusConfig.enabled
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
 				<Content components={{ pre: Code, SButton }} />
 			</div>
+			<!-- gallery -->
+			{
+				post.data.galleryImages && (
+					<div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
+						{post.data.galleryImages.map((image) => (
+							<img src={image.src} class='rounded-lg' alt='' />
+						))}
+					</div>
+				)
+			}
 
 			<!-- related posts -->
 			<footer>
