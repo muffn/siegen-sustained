@@ -30,56 +30,57 @@ export default defineConfig({
 		collections: [
 			{
 				name: 'post',
-				label: 'Blog Post',
+				label: 'Blog Beiträge',
 				path: 'src/content/blog',
 				format: 'mdx',
 				fields: [
 					{
 						type: 'image',
-						label: 'Cover Image',
+						label: 'Titelbild',
 						required: true,
 						name: 'heroImage',
-						description: 'The image used for the cover of the post'
+						description: 'Das Titelbild des Beitrags'
 					},
 					{
 						type: 'string',
 						required: true,
 						name: 'category',
-						label: 'Category',
-						description: 'Select an category for this post',
+						label: 'Kategorie',
+						description: 'Die Kategorie für diesen Beitrag',
 						options: [...CATEGORIES]
 					},
 					{
 						type: 'string',
-						label: 'description',
+						label: 'Beschreibung',
 						required: true,
 						name: 'description',
-						description: 'A short description of the post'
+						description:
+							'Eine kurze Beschreibung des Beitrags. Wird auf der Übersichtsseite angezeigt'
 					},
 					{
 						type: 'datetime',
 						name: 'pubDate',
-						label: 'Publication Date',
+						label: 'Veröffentlichungsdatum',
 						required: true
 					},
 					{
 						name: 'draft',
-						label: 'Draft',
+						label: 'Entwurf',
 						type: 'boolean',
-						description: 'If this is checked the post will not be published'
+						description: 'Wenn dies aktiviert ist, wird der Beitrag nicht veröffentlicht'
 					},
 					{
 						type: 'string',
 						name: 'tags',
 						required: true, //does not work see https://github.com/tinacms/tinacms/issues/5220
 						label: 'Tags',
-						description: 'Tags for this post',
+						description: 'Tags für diesen Beitrag. Damit lassen sich ähnliche Beiträge finden',
 						list: true,
 						ui: {
 							component: 'tags',
 							validate: (value) => {
 								if (!value || value.length === 0) {
-									return 'At least one tag is required'
+									return 'Mindestens ein Tag ist erforderlich'
 								}
 							}
 						}
@@ -87,13 +88,13 @@ export default defineConfig({
 					{
 						type: 'string',
 						name: 'title',
-						label: 'Title',
+						label: 'Titel',
 						isTitle: true,
 						required: true
 					},
 					{
 						type: 'rich-text',
-						label: 'Body',
+						label: 'Inhalt',
 						name: 'SButton',
 						isBody: true,
 						templates: [
@@ -114,10 +115,10 @@ export default defineConfig({
 					},
 					{
 						type: 'image',
-						label: 'Gallery Images',
+						label: 'Bildergalerie',
 						name: 'galleryImages',
 						list: true,
-						description: 'The images used in the end of the post'
+						description: 'Bilder, die in einer Galerie am Ende des Beitrags angezeigt werden'
 					}
 				]
 			}
