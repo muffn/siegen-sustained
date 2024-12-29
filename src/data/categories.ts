@@ -1,2 +1,7 @@
 // List of categories for blog posts
-export const CATEGORIES = ['Das Fischkrieg Turnier', 'Die Turniertische', 'Eventkalender'] as const
+export const CATEGORIES = [
+	'Turnierteam',
+	'Fischkrieg Turnier',
+	'Turniertische',
+	'Eventkalender'
+] as const

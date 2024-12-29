@@ -36,7 +36,15 @@ const posts = page.data
 	<TitlePage title={unsluglifyNameCategory} />
 	<ListCategories activeCategory={params.category} />
 	{
-		params.category === 'das-fischkrieg-turnier' && (
+		params.category === 'turnierteam' && (
+			<p>
+				Hier könnte ihre Werbung stehen! <br /> Alternativ steht hier ein Text der das Turnierteam
+				beschreibt, ist wohl auch okay
+			</p>
+		)
+	}
+	{
+		params.category === 'fischkrieg-turnier' && (
 			<p>
 				Hier könnte ihre Werbung stehen! <br /> Alternativ steht hier ein Text der das Fischkrieg
 				turnier beschreibt, ist wohl auch okay
@@ -44,7 +52,7 @@ const posts = page.data
 		)
 	}
 	{
-		params.category === 'die-turniertische' && (
+		params.category === 'turniertische' && (
 			<p>
 				Hier könnte ihre Werbung stehen! <br /> Alternativ steht hier ein Text der die Planeten
 				beschreibt, ist wohl auch okay
