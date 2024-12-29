@@ -12,12 +12,30 @@ interface Props {
 const { galleryImages } = Astro.props as Props
 ---
 
-{
-	galleryImages && (
-		<div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
-			{galleryImages.map((image, index) => (
-				<img src={image.src} class='rounded-lg' alt={`image ${index + 1}`} />
-			))}
-		</div>
-	)
-}
+<div class='grid grid-cols-1 md:grid-cols-2 gap-4 pswp-gallery' id='image-gallery'>
+	{
+		galleryImages.map((image, index) => (
+			<a
+				href={image.src}
+				data-pswp-width={image.width}
+				data-pswp-height={image.height}
+				target='_blank'
+			>
+				<img src={image.src} alt={`image ${index + 1}`} class='rounded-lg' />
+			</a>
+		))
+	}
+</div>
+
+<script>
+	import PhotoSwipeLightbox from 'photoswipe/lightbox'
+	import 'photoswipe/style.css'
+
+	const lightbox = new PhotoSwipeLightbox({
+		gallery: '#image-gallery',
+		children: 'a',
+		pswpModule: () => import('photoswipe')
+	})
+
+	lightbox.init()
+</script>
