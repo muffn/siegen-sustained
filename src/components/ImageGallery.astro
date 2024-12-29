@@ -1,0 +1,23 @@
+---
+interface Image {
+	format: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif'
+	src: string
+	width: number
+	height: number
+}
+interface Props {
+	galleryImages: Image[]
+}
+
+const { galleryImages } = Astro.props as Props
+---
+
+{
+	galleryImages && (
+		<div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
+			{galleryImages.map((image, index) => (
+				<img src={image.src} class='rounded-lg' alt={`image ${index + 1}`} />
+			))}
+		</div>
+	)
+}
