@@ -18,6 +18,14 @@ export default defineConfig({
 	token: process.env.TINA_TOKEN,
 	clientId: process.env.TINA_PUBLIC_CLIENT_ID,
 	branch,
+	search: {
+		tina: {
+			indexerToken: process.env.TINA_SEARCH_TOKEN,
+			stopwordLanguages: ['deu', 'eng']
+		},
+		indexBatchSize: 100,
+		maxSearchIndexFieldLength: 100
+	},
 	schema: {
 		collections: [
 			{
