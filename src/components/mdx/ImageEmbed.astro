@@ -1,13 +1,10 @@
 ---
+import { adjustImageUrl } from '../../utils/fixUrl'
 const props = Astro.props
 
 type Props = {
 	image: string
 	alt: string
-}
-
-const adjustImageUrl = (url: string): string => {
-	return url.replace(/^\/public/, '')
 }
 
 const adjustedImage = adjustImageUrl(props.image)
