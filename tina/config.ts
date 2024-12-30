@@ -97,17 +97,31 @@ export default defineConfig({
 						label: 'Inhalt',
 						name: 'SButton',
 						isBody: true,
+						toolbarOverride: [
+							'heading',
+							'link',
+							'image',
+							'quote',
+							'ul',
+							'ol',
+							'bold',
+							'italic',
+							'code',
+							'codeBlock',
+							'mermaid',
+							'table',
+							'raw',
+							'embed'
+						],
 						templates: [
-							// Custom Components
 							{
-								label: 'SButton',
-								name: 'SButton',
+								name: 'ImageEmbed',
+								label: 'Bild einbetten',
 								fields: [
 									{
-										type: 'rich-text',
-										label: 'SButton',
-										name: 'children',
-										isBody: true
+										name: 'image',
+										label: 'Bild',
+										type: 'image'
 									}
 								]
 							}
