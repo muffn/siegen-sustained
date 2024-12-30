@@ -1,0 +1,27 @@
+---
+import TitlePage from '@/components/TitlePage'
+import BaseLayout from '@/layouts/BaseLayout'
+
+const title = '404 - Aus dem Warp gefallen!'
+---
+
+<BaseLayout title={title}>
+	<TitlePage title={title} />
+	<div>
+		<article class='max-w-full w-full text-center'>
+			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
+				<p>
+					Es scheint, als wärst du aus dem Warp gefallen und auf einer Seite gelandet, die nicht
+					existiert.
+				</p>
+				<p>
+					Keine Sorge, das passiert den Besten. Klicke einfach auf den Link unten, um den
+					Warpantrieb anzuwerfen und nach Hause zurückzukehren.
+				</p>
+				<div class='mt-8'>
+					<a href='/'>🚀 Zurück zum Heimatstern 🪐</a>
+				</div>
+			</div>
+		</article>
+	</div>
+</BaseLayout>
