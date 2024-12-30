@@ -2,8 +2,9 @@
 import TitlePage from '@/components/TitlePage'
 import BaseLayout from '@/layouts/BaseLayout'
 import { getPageByTitle } from '../utils/post'
-import SButton from '../components/mdx/SButton.astro'
+import Team from '../components/mdx/Team.astro'
 import Code from '../components/mdx/Code.astro'
+import ImageEmbed from '@/components/mdx/ImageEmbed'
 
 const title = 'Hobby Starter'
 const page = await getPageByTitle(title)
@@ -20,7 +21,7 @@ const { Content } = await page.render()
 	<div>
 		<article class='max-w-full w-full'>
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
-				<Content components={{ pre: Code, SButton }} />
+				<Content components={{ pre: Code, Team, ImageEmbed }} />
 			</div>
 		</article>
 	</div>
