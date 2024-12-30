@@ -12,7 +12,7 @@ export default defineConfig({
 	media: {
 		tina: {
 			mediaRoot: '/src/assets/images',
-			publicFolder: 'public'
+			publicFolder: ''
 		}
 	},
 	token: process.env.TINA_TOKEN,
@@ -161,6 +161,13 @@ export default defineConfig({
 								]
 							}
 						]
+					},
+					{
+						type: 'image',
+						label: 'Bildergalerie',
+						name: 'galleryImages',
+						list: true,
+						description: 'Bilder, die in einer Galerie am Ende der Seite angezeigt werden'
 					}
 				]
 			}

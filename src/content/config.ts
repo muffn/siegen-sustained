@@ -21,10 +21,11 @@ const blog = defineCollection({
 })
 
 const page = defineCollection({
-	schema: () =>
+	schema: ({ image }) =>
 		z.object({
 			title: z.string().max(80),
-			id: z.string().max(80)
+			id: z.string().max(80),
+			galleryImages: z.array(image()).optional()
 		})
 })
 
