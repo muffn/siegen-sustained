@@ -12,7 +12,7 @@ export default defineConfig({
 	media: {
 		tina: {
 			mediaRoot: '/src/assets/images',
-			publicFolder: 'public'
+			publicFolder: ''
 		}
 	},
 	token: process.env.TINA_TOKEN,
