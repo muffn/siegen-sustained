@@ -121,6 +121,48 @@ export default defineConfig({
 						description: 'Bilder, die in einer Galerie am Ende des Beitrags angezeigt werden'
 					}
 				]
+			},
+			{
+				name: 'page',
+				label: 'Seiten',
+				path: 'src/content/page',
+				format: 'mdx',
+				ui: {
+					allowedActions: {
+						create: false,
+						delete: false
+					}
+				},
+				fields: [
+					{
+						type: 'string',
+						name: 'title',
+						label: 'Titel',
+						isTitle: true,
+						required: true
+					},
+					{
+						type: 'rich-text',
+						label: 'Inhalt',
+						name: 'SButton',
+						isBody: true,
+						templates: [
+							// Custom Components
+							{
+								label: 'SButton',
+								name: 'SButton',
+								fields: [
+									{
+										type: 'rich-text',
+										label: 'SButton',
+										name: 'children',
+										isBody: true
+									}
+								]
+							}
+						]
+					}
+				]
 			}
 		]
 	}

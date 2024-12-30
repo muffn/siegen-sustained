@@ -18,6 +18,11 @@ export const getPosts = async (max?: number) => {
 		.slice(0, max)
 }
 
+export const getPageByTitle = async (title: string) => {
+	const pages = await getCollection('page')
+	return pages.find((page) => page.data.id === title)
+}
+
 export const getTags = async () => {
 	const posts = await getCollection('blog')
 	const tags = new Set()

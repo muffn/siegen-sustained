@@ -20,4 +20,12 @@ const blog = defineCollection({
 		})
 })
 
-export const collections = { blog }
+const page = defineCollection({
+	schema: () =>
+		z.object({
+			title: z.string().max(80),
+			id: z.string().max(80)
+		})
+})
+
+export const collections = { blog, page }
