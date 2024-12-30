@@ -22,9 +22,6 @@ import ToggleTheme from './ToggleTheme.astro'
 				>
 				<a class='flex items-center gap-1 text-2xl md:text-base' href='/liga'>Liga</a>
 				<a class='flex items-center gap-1 text-2xl md:text-base' href='/kontakt'>Kontakt</a>
-				<HeaderLink href='/tags' class='flex items-center gap-1 text-2xl md:text-base md:ml-auto'>
-					<TagIcon /> Tags
-				</HeaderLink>
 			</div>
 		</nav>
 	</div>
@@ -36,7 +33,12 @@ import ToggleTheme from './ToggleTheme.astro'
 		</button>
 		<div class='ml-auto'>
 			<Search />
+			<span class='sr-only'>Suche öffnen</span>
 		</div>
+		<HeaderLink href='/tags'>
+			<TagIcon />
+			<span class='sr-only'>Tags anzeigen</span>
+		</HeaderLink>
 		<ToggleTheme class='ml-auto' />
 	</div>
 </header>
