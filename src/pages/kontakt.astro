@@ -2,8 +2,8 @@
 import TitlePage from '@/components/TitlePage'
 import BaseLayout from '@/layouts/BaseLayout'
 import { getPageByTitle } from '../utils/post'
-import SButton from '../components/mdx/SButton.astro'
 import Code from '../components/mdx/Code.astro'
+import Team from '../components/mdx/Team.astro'
 
 const title = 'Kontakt'
 const page = await getPageByTitle(title)
@@ -13,6 +13,35 @@ if (!page) {
 }
 
 const { Content } = await page.render()
+
+const teamTitle = 'Unser Team'
+const teamDescription = 'Unser Team besteht echten Menschen, die echte Dinge tun.'
+const dummyTeam = [
+	{
+		name: 'John Doe',
+		role: 'Atmet Luft',
+		image:
+			'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'
+	},
+	{
+		name: 'Jane Smith',
+		role: 'Trinkt Wasser',
+		image:
+			'https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'
+	},
+	{
+		name: 'Alice Johnson',
+		role: 'Isst Essen',
+		image:
+			'https://images.unsplash.com/photo-1488508872907-592763824245?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+	},
+	{
+		name: 'Bob Brown',
+		role: 'Schläft',
+		image:
+			'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'
+	}
+]
 ---
 
 <BaseLayout title={page.data.title}>
@@ -20,8 +49,9 @@ const { Content } = await page.render()
 	<div>
 		<article class='max-w-full w-full'>
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
-				<Content components={{ pre: Code, SButton }} />
+				<Content components={{ pre: Code, Team }} />
 			</div>
 		</article>
 	</div>
+	<Team team={dummyTeam} title={teamTitle} description={teamDescription} />
 </BaseLayout>
