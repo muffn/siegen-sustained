@@ -10,6 +10,7 @@ import SButton from '@/components/mdx/SButton'
 import Disqus from '@/components/Disqus'
 import { disqusConfig } from '@/data/disqus.config'
 import ImageGallery from '../../components/ImageGallery.astro'
+import ImageEmbed from '@/components/mdx/ImageEmbed'
 
 const posts = await getCollection('blog')
 export async function getStaticPaths() {
@@ -57,7 +58,7 @@ const disqusEnabled = disqusConfig.enabled
 		<!-- post -->
 		<article class='max-w-full w-full'>
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
-				<Content components={{ pre: Code, SButton }} />
+				<Content components={{ pre: Code, SButton, ImageEmbed }} />
 			</div>
 
 			<!-- image gallery -->
