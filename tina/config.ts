@@ -100,15 +100,11 @@ export default defineConfig({
 						toolbarOverride: [
 							'heading',
 							'link',
-							'image',
 							'quote',
 							'ul',
 							'ol',
 							'bold',
 							'italic',
-							'code',
-							'codeBlock',
-							'mermaid',
 							'table',
 							'raw',
 							'embed'
@@ -122,6 +118,13 @@ export default defineConfig({
 										name: 'image',
 										label: 'Bild',
 										type: 'image'
+									},
+									{
+										name: 'alt',
+										label: 'Beschreibungstext',
+										description:
+											'Beschreibt das Bild für Bildschirmleser und falls es nicht geladen werden kann',
+										type: 'string'
 									}
 								]
 							}

@@ -3,6 +3,7 @@ const props = Astro.props
 
 type Props = {
 	image: string
+	alt: string
 }
 
 const adjustImageUrl = (url: string): string => {
@@ -12,5 +13,5 @@ const adjustImageUrl = (url: string): string => {
 const adjustedImage = adjustImageUrl(props.image)
 ---
 
-<img src={adjustedImage} alt='' />
+<img src={adjustedImage} alt={props.alt} class='w-full' />
 <slot />
