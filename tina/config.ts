@@ -95,7 +95,7 @@ export default defineConfig({
 					{
 						type: 'rich-text',
 						label: 'Inhalt',
-						name: 'SButton',
+						name: 'ImageEmbed',
 						isBody: true,
 						toolbarOverride: [
 							'heading',
@@ -112,19 +112,21 @@ export default defineConfig({
 						templates: [
 							{
 								name: 'ImageEmbed',
-								label: 'Bild einbetten',
+								label: 'Eingebettetes Bild',
 								fields: [
 									{
 										name: 'image',
 										label: 'Bild',
-										type: 'image'
+										type: 'image',
+										required: true
 									},
 									{
 										name: 'alt',
 										label: 'Beschreibungstext',
 										description:
 											'Beschreibt das Bild für Bildschirmleser und falls es nicht geladen werden kann',
-										type: 'string'
+										type: 'string',
+										required: true
 									}
 								]
 							}
@@ -161,19 +163,38 @@ export default defineConfig({
 					{
 						type: 'rich-text',
 						label: 'Inhalt',
-						name: 'SButton',
+						name: 'ImageEmbed',
 						isBody: true,
+						toolbarOverride: [
+							'heading',
+							'link',
+							'quote',
+							'ul',
+							'ol',
+							'bold',
+							'italic',
+							'table',
+							'raw',
+							'embed'
+						],
 						templates: [
-							// Custom Components
 							{
-								label: 'SButton',
-								name: 'SButton',
+								name: 'ImageEmbed',
+								label: 'Eingebettetes Bild',
 								fields: [
 									{
-										type: 'rich-text',
-										label: 'SButton',
-										name: 'children',
-										isBody: true
+										name: 'image',
+										label: 'Bild',
+										type: 'image',
+										required: true
+									},
+									{
+										name: 'alt',
+										label: 'Beschreibungstext',
+										description:
+											'Beschreibt das Bild für Bildschirmleser und falls es nicht geladen werden kann',
+										type: 'string',
+										required: true
 									}
 								]
 							}
