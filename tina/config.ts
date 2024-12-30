@@ -129,56 +129,6 @@ export default defineConfig({
 										required: true
 									}
 								]
-							},
-							{
-								name: 'Team',
-								label: 'Das Team',
-								fields: [
-									{
-										name: 'title',
-										label: 'Überschrift',
-										description: 'Die Überschrift für den Teamabschnitt',
-										type: 'string',
-										required: true
-									},
-									{
-										name: 'description',
-										label: 'Beschreibung',
-										description: 'Eine kurze Beschreibung des Teams',
-										type: 'string',
-										required: true
-									},
-									{
-										name: 'members',
-										label: 'Mitglieder',
-										description: 'Die Mitglieder des Teams',
-										type: 'object',
-										list: true,
-										fields: [
-											{
-												name: 'name',
-												label: 'Name',
-												description: 'Der Name des Teammitglieds',
-												type: 'string',
-												required: true
-											},
-											{
-												name: 'image',
-												label: 'Bild',
-												description: 'Ein Bild des Teammitglieds',
-												type: 'image',
-												required: true
-											},
-											{
-												name: 'role',
-												label: 'Rolle',
-												description: 'Eine kurze Beschreibung der Rolle unter dem Namen',
-												type: 'string',
-												required: true
-											}
-										]
-									}
-								]
 							}
 						]
 					},
@@ -245,56 +195,6 @@ export default defineConfig({
 											'Beschreibt das Bild für Bildschirmleser und falls es nicht geladen werden kann',
 										type: 'string',
 										required: true
-									}
-								]
-							},
-							{
-								name: 'Team',
-								label: 'Das Team',
-								fields: [
-									{
-										name: 'title',
-										label: 'Überschrift',
-										description: 'Die Überschrift für den Teamabschnitt',
-										type: 'string',
-										required: true
-									},
-									{
-										name: 'description',
-										label: 'Beschreibung',
-										description: 'Eine kurze Beschreibung des Teams',
-										type: 'string',
-										required: true
-									},
-									{
-										name: 'members',
-										label: 'Mitglieder',
-										description: 'Die Mitglieder des Teams',
-										type: 'object',
-										list: true,
-										fields: [
-											{
-												name: 'name',
-												label: 'Name',
-												description: 'Der Name des Teammitglieds',
-												type: 'string',
-												required: true
-											},
-											{
-												name: 'image',
-												label: 'Bild',
-												description: 'Ein Bild des Teammitglieds',
-												type: 'image',
-												required: true
-											},
-											{
-												name: 'role',
-												label: 'Rolle',
-												description: 'Eine kurze Beschreibung der Rolle unter dem Namen',
-												type: 'string',
-												required: true
-											}
-										]
 									}
 								]
 							}
