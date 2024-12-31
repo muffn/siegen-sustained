@@ -24,4 +24,128 @@ const { Content } = await page.render()
 			</div>
 		</article>
 	</div>
+
+	<div class='relative overflow-x-auto rounded-xl border-8 border-gray-100 dark:border-gray-700'>
+		<table class='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'>
+			<thead
+				class='text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400'
+			>
+				<tr>
+					<th scope='col' class='pl-2 pb-2 text-center'>#</th>
+					<th scope='col' class='pl-2 pb-2'>Spieler</th>
+					<th scope='col' class='px-0 pb-2 text-center'>
+						<span class='hidden sm:inline'>Spiele</span>
+						<span class='sm:hidden'>Sp</span>
+					</th>
+					<th scope='col' class='px-0 pb-2 text-center'>S</th>
+					<th scope='col' class='px-0 pb-2 text-center'>U</th>
+					<th scope='col' class='px-0 pb-2 text-center'>N</th>
+					<th scope='col' class='px-0 pb-2 text-center w-1'>D</th>
+					<th scope='col' class='px-0 pb-2 text-center w-9 sm:w-20'>
+						<span class='hidden sm:inline'>Punkte</span>
+						<span class='sm:hidden'>Pt</span>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+					<th
+						scope='row'
+						class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
+						>1</th
+					>
+					<td class='pl-2 py-2'>Max Mustermann</td>
+					<td class='px-0 py-2 text-center'>15</td>
+					<td class='px-0 py-2 text-center'>11</td>
+					<td class='px-0 py-2 text-center'>3</td>
+					<td class='px-0 py-2 text-center'>1</td>
+					<td class='px-0 py-2 text-center' data-value='+34'>+34</td>
+					<td class='px-0 py-2 text-center'>32</td>
+				</tr>
+				<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+					<th
+						scope='row'
+						class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
+						>2</th
+					>
+					<td class='pl-2 py-2'>John Doe</td>
+					<td class='px-0 py-2 text-center'>15</td>
+					<td class='px-0 py-2 text-center'>7</td>
+					<td class='px-0 py-2 text-center'>4</td>
+					<td class='px-0 py-2 text-center'>4</td>
+					<td class='px-0 py-2 text-center' data-value='+8'>+8</td>
+					<td class='px-0 py-2 text-center'>25</td>
+				</tr>
+				<tr class='bg-white dark:bg-gray-800'>
+					<th
+						scope='row'
+						class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
+						>3</th
+					>
+					<td class='pl-2 py-2'>Joanna Doe</td>
+					<td class='px-0 py-2 text-center'>15</td>
+					<td class='px-0 py-2 text-center'>3</td>
+					<td class='px-0 py-2 text-center'>1</td>
+					<td class='px-0 py-2 text-center'>11</td>
+					<td class='px-0 py-2 text-center' data-value='-15'>-15</td>
+					<td class='px-0 py-2 text-center'>10</td>
+				</tr>
+				<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+					<th
+						scope='row'
+						class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
+						>4</th
+					>
+					<td class='pl-2 py-2'>Alice Smith</td>
+					<td class='px-0 py-2 text-center'>15</td>
+					<td class='px-0 py-2 text-center'>10</td>
+					<td class='px-0 py-2 text-center'>2</td>
+					<td class='px-0 py-2 text-center'>3</td>
+					<td class='px-0 py-2 text-center' data-value='+20'>+20</td>
+					<td class='px-0 py-2 text-center'>32</td>
+				</tr>
+				<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+					<th
+						scope='row'
+						class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
+						>5</th
+					>
+					<td class='pl-2 py-2'>Bob Brown</td>
+					<td class='px-0 py-2 text-center'>15</td>
+					<td class='px-0 py-2 text-center'>8</td>
+					<td class='px-0 py-2 text-center'>5</td>
+					<td class='px-0 py-2 text-center'>2</td>
+					<td class='px-0 py-2 text-center' data-value='+10'>+10</td>
+					<td class='px-0 py-2 text-center'>29</td>
+				</tr>
+				<tr class='bg-white dark:bg-gray-800'>
+					<th
+						scope='row'
+						class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
+						>6</th
+					>
+					<td class='pl-2 py-2'>Charlie Davis</td>
+					<td class='px-0 py-2 text-center'>15</td>
+					<td class='px-0 py-2 text-center'>6</td>
+					<td class='px-0 py-2 text-center'>6</td>
+					<td class='px-0 py-2 text-center'>3</td>
+					<td class='px-0 py-2 text-center' data-value='+5'>+5</td>
+					<td class='px-0 py-2 text-center'>24</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </BaseLayout>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const cells = document.querySelectorAll('td[data-value]')
+		cells.forEach((cell) => {
+			const value = parseInt(cell.getAttribute('data-value'), 10)
+			if (value > 0) {
+				cell.classList.add('text-green-700')
+			} else if (value < 0) {
+				cell.classList.add('text-red-500')
+			}
+		})
+	})
+</script>
