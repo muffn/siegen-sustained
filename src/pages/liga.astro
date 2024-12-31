@@ -13,6 +13,84 @@ if (!page) {
 }
 
 const { Content } = await page.render()
+
+type Player = {
+	rank: number
+	name: string
+	games: number
+	wins: number
+	draws: number
+	losses: number
+	difference: number
+	points: number
+}
+
+type Props = {
+	players: Player[]
+}
+
+const players: Player[] = [
+	{
+		rank: 1,
+		name: 'Max Mustermann',
+		games: 15,
+		wins: 11,
+		draws: 3,
+		losses: 1,
+		difference: 34,
+		points: 32
+	},
+	{
+		rank: 2,
+		name: 'John Doe',
+		games: 15,
+		wins: 7,
+		draws: 4,
+		losses: 4,
+		difference: 8,
+		points: 25
+	},
+	{
+		rank: 3,
+		name: 'Joanna Doe',
+		games: 15,
+		wins: 3,
+		draws: 1,
+		losses: 11,
+		difference: -15,
+		points: 10
+	},
+	{
+		rank: 4,
+		name: 'Alice Smith',
+		games: 15,
+		wins: 10,
+		draws: 2,
+		losses: 3,
+		difference: 20,
+		points: 32
+	},
+	{
+		rank: 5,
+		name: 'Bob Brown',
+		games: 15,
+		wins: 8,
+		draws: 5,
+		losses: 2,
+		difference: 10,
+		points: 29
+	},
+	{
+		rank: 6,
+		name: 'Charlie Davis',
+		games: 15,
+		wins: 6,
+		draws: 6,
+		losses: 3,
+		difference: 5,
+		points: 24
+	}
+]
 ---
 
 <BaseLayout title={page.data.title}>
@@ -48,90 +126,29 @@ const { Content } = await page.render()
 				</tr>
 			</thead>
 			<tbody>
-				<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
-					<th
-						scope='row'
-						class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
-						>1</th
-					>
-					<td class='pl-2 py-2'>Max Mustermann</td>
-					<td class='px-0 py-2 text-center'>15</td>
-					<td class='px-0 py-2 text-center'>11</td>
-					<td class='px-0 py-2 text-center'>3</td>
-					<td class='px-0 py-2 text-center'>1</td>
-					<td class='px-0 py-2 text-center' data-value='+34'>+34</td>
-					<td class='px-0 py-2 text-center'>32</td>
-				</tr>
-				<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
-					<th
-						scope='row'
-						class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
-						>2</th
-					>
-					<td class='pl-2 py-2'>John Doe</td>
-					<td class='px-0 py-2 text-center'>15</td>
-					<td class='px-0 py-2 text-center'>7</td>
-					<td class='px-0 py-2 text-center'>4</td>
-					<td class='px-0 py-2 text-center'>4</td>
-					<td class='px-0 py-2 text-center' data-value='+8'>+8</td>
-					<td class='px-0 py-2 text-center'>25</td>
-				</tr>
-				<tr class='bg-white dark:bg-gray-800'>
-					<th
-						scope='row'
-						class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
-						>3</th
-					>
-					<td class='pl-2 py-2'>Joanna Doe</td>
-					<td class='px-0 py-2 text-center'>15</td>
-					<td class='px-0 py-2 text-center'>3</td>
-					<td class='px-0 py-2 text-center'>1</td>
-					<td class='px-0 py-2 text-center'>11</td>
-					<td class='px-0 py-2 text-center' data-value='-15'>-15</td>
-					<td class='px-0 py-2 text-center'>10</td>
-				</tr>
-				<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
-					<th
-						scope='row'
-						class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
-						>4</th
-					>
-					<td class='pl-2 py-2'>Alice Smith</td>
-					<td class='px-0 py-2 text-center'>15</td>
-					<td class='px-0 py-2 text-center'>10</td>
-					<td class='px-0 py-2 text-center'>2</td>
-					<td class='px-0 py-2 text-center'>3</td>
-					<td class='px-0 py-2 text-center' data-value='+20'>+20</td>
-					<td class='px-0 py-2 text-center'>32</td>
-				</tr>
-				<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
-					<th
-						scope='row'
-						class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
-						>5</th
-					>
-					<td class='pl-2 py-2'>Bob Brown</td>
-					<td class='px-0 py-2 text-center'>15</td>
-					<td class='px-0 py-2 text-center'>8</td>
-					<td class='px-0 py-2 text-center'>5</td>
-					<td class='px-0 py-2 text-center'>2</td>
-					<td class='px-0 py-2 text-center' data-value='+10'>+10</td>
-					<td class='px-0 py-2 text-center'>29</td>
-				</tr>
-				<tr class='bg-white dark:bg-gray-800'>
-					<th
-						scope='row'
-						class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
-						>6</th
-					>
-					<td class='pl-2 py-2'>Charlie Davis</td>
-					<td class='px-0 py-2 text-center'>15</td>
-					<td class='px-0 py-2 text-center'>6</td>
-					<td class='px-0 py-2 text-center'>6</td>
-					<td class='px-0 py-2 text-center'>3</td>
-					<td class='px-0 py-2 text-center' data-value='+5'>+5</td>
-					<td class='px-0 py-2 text-center'>24</td>
-				</tr>
+				{
+					players.map((player) => (
+						<tr
+							class={`bg-white border-b dark:bg-gray-800 dark:border-gray-700 ${player.rank % 2 === 0 ? 'even:bg-gray-100' : ''}`}
+						>
+							<th
+								scope='row'
+								class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
+							>
+								{player.rank}
+							</th>
+							<td class='pl-2 py-2'>{player.name}</td>
+							<td class='px-0 py-2 text-center'>{player.games}</td>
+							<td class='px-0 py-2 text-center'>{player.wins}</td>
+							<td class='px-0 py-2 text-center'>{player.draws}</td>
+							<td class='px-0 py-2 text-center'>{player.losses}</td>
+							<td class='px-0 py-2 text-center' data-value={player.difference}>
+								{player.difference}
+							</td>
+							<td class='px-0 py-2 text-center'>{player.points}</td>
+						</tr>
+					))
+				}
 			</tbody>
 		</table>
 	</div>
