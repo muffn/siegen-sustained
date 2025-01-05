@@ -1,0 +1,85 @@
+---
+
+---
+
+<table class='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'>
+	<slot />
+</table>
+
+<script>
+	const addClasses = (element: HTMLElement, classes: string[]) => {
+		classes.forEach((className) => {
+			element.classList.add(className)
+		})
+	}
+
+	const styleTableRows = (rows: NodeListOf<HTMLTableRowElement>) => {
+		rows.forEach((row, index) => {
+			addClasses(row, ['p-0', 'even:bg-gray-100', 'dark:bg-gray-800'])
+			if (index === 0) {
+				styleHeaderRow(row)
+			} else {
+				styleDataRow(row)
+			}
+		})
+	}
+
+	const styleHeaderRow = (row: HTMLTableRowElement) => {
+		addClasses(row, [
+			'text-xs',
+			'text-gray-700',
+			'uppercase',
+			'bg-gray-100',
+			'dark:bg-gray-500',
+			'dark:text-gray-400'
+		])
+		const headers = row.querySelectorAll('th')
+		headers.forEach((header) => {
+			addClasses(header, ['p-4']) // Add padding to table headers
+		})
+		styleTableCells(headers, ['text-center'], [1])
+	}
+
+	const styleDataRow = (row: HTMLTableRowElement) => {
+		addClasses(row, ['bg-white', 'border-b', 'dark:border-gray-700'])
+		const cells = row.querySelectorAll('td')
+		styleTableCells(cells, ['text-center'], [1])
+	}
+
+	const styleTableCells = (
+		cells: NodeListOf<HTMLElement>,
+		classesToAdd: string[],
+		excludeIndices: number[] = []
+	) => {
+		if (cells.length >= 7) {
+			for (let i = 0; i < cells.length; i++) {
+				if (!excludeIndices.includes(i)) {
+					addClasses(cells[i], classesToAdd)
+				}
+			}
+			colorCellValue(cells[6])
+		}
+	}
+
+	const colorCellValue = (cell: HTMLElement) => {
+		const value = cell.innerText.trim()
+		if (value.startsWith('+')) {
+			addClasses(cell, ['text-green-500'])
+		} else if (value.startsWith('-')) {
+			addClasses(cell, ['text-red-500'])
+		}
+	}
+
+	const copyBlock = () => {
+		const tableBlock = document.querySelectorAll('table')
+		tableBlock.forEach((table) => {
+			const rows = table.querySelectorAll('tr')
+			if (rows.length > 0 && rows[0].children.length === 8) {
+				styleTableRows(rows)
+			}
+		})
+	}
+
+	copyBlock() // initial load
+	document.addEventListener('astro:after-swap', copyBlock) // re-run after each page change
+</script>

@@ -5,6 +5,7 @@ import { getPageByTitle } from '../utils/post'
 import Code from '../components/mdx/Code.astro'
 import ImageEmbed from '@/components/mdx/ImageEmbed'
 import Team from '../components/Team.astro'
+import Scoreboard from '../components/mdx/Scoreboard.astro'
 
 const title = 'Kontakt'
 const page = await getPageByTitle(title)
@@ -46,7 +47,7 @@ const dummyTeam = [
 	<div>
 		<article class='max-w-full w-full'>
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
-				<Content components={{ pre: Code, ImageEmbed }} />
+				<Content components={{ pre: Code, table: Scoreboard, ImageEmbed }} />
 			</div>
 		</article>
 	</div>

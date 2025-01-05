@@ -4,6 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout'
 import { getPageByTitle } from '../utils/post'
 import Code from '../components/mdx/Code.astro'
 import ImageEmbed from '@/components/mdx/ImageEmbed'
+import Scoreboard from '../components/mdx/Scoreboard.astro'
 
 const title = 'Hobby Starter'
 const page = await getPageByTitle(title)
@@ -20,7 +21,7 @@ const { Content } = await page.render()
 	<div>
 		<article class='max-w-full w-full'>
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
-				<Content components={{ pre: Code, ImageEmbed }} />
+				<Content components={{ pre: Code, table: Scoreboard, ImageEmbed }} />
 			</div>
 		</article>
 	</div>

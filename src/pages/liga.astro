@@ -4,6 +4,8 @@ import BaseLayout from '@/layouts/BaseLayout'
 import { getPageByTitle } from '../utils/post'
 import Code from '../components/mdx/Code.astro'
 import ImageEmbed from '@/components/mdx/ImageEmbed'
+import ImageGallery from '../components/ImageGallery.astro'
+import Scoreboard from '@/components/mdx/Scoreboard'
 
 const title = 'Liga'
 const page = await getPageByTitle(title)
@@ -13,84 +15,6 @@ if (!page) {
 }
 
 const { Content } = await page.render()
-
-type Player = {
-	rank: number
-	name: string
-	games: number
-	wins: number
-	draws: number
-	losses: number
-	difference: number
-	points: number
-}
-
-type Props = {
-	players: Player[]
-}
-
-const players: Player[] = [
-	{
-		rank: 1,
-		name: 'Max Mustermann',
-		games: 15,
-		wins: 11,
-		draws: 3,
-		losses: 1,
-		difference: 34,
-		points: 32
-	},
-	{
-		rank: 2,
-		name: 'John Doe',
-		games: 15,
-		wins: 7,
-		draws: 4,
-		losses: 4,
-		difference: 8,
-		points: 25
-	},
-	{
-		rank: 3,
-		name: 'Joanna Doe',
-		games: 15,
-		wins: 3,
-		draws: 1,
-		losses: 11,
-		difference: -15,
-		points: 10
-	},
-	{
-		rank: 4,
-		name: 'Alice Smith',
-		games: 15,
-		wins: 10,
-		draws: 2,
-		losses: 3,
-		difference: 20,
-		points: 32
-	},
-	{
-		rank: 5,
-		name: 'Bob Brown',
-		games: 15,
-		wins: 8,
-		draws: 5,
-		losses: 2,
-		difference: 10,
-		points: 29
-	},
-	{
-		rank: 6,
-		name: 'Charlie Davis',
-		games: 15,
-		wins: 6,
-		draws: 6,
-		losses: 3,
-		difference: 5,
-		points: 24
-	}
-]
 ---
 
 <BaseLayout title={page.data.title}>
@@ -98,71 +22,14 @@ const players: Player[] = [
 	<div>
 		<article class='max-w-full w-full'>
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
-				<Content components={{ pre: Code, ImageEmbed }} />
+				<Content components={{ pre: Code, table: Scoreboard, ImageEmbed }} />
 			</div>
 		</article>
-	</div>
-
-	<div class='relative overflow-x-auto rounded-xl border-8 border-gray-100 dark:border-gray-700'>
-		<table class='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'>
-			<thead
-				class='text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400'
-			>
-				<tr>
-					<th scope='col' class='pl-2 pb-2 text-center'>#</th>
-					<th scope='col' class='pl-2 pb-2'>Spieler</th>
-					<th scope='col' class='px-0 pb-2 text-center'>
-						<span class='hidden sm:inline'>Spiele</span>
-						<span class='sm:hidden'>Sp</span>
-					</th>
-					<th scope='col' class='px-0 pb-2 text-center'>S</th>
-					<th scope='col' class='px-0 pb-2 text-center'>U</th>
-					<th scope='col' class='px-0 pb-2 text-center'>N</th>
-					<th scope='col' class='px-0 pb-2 text-center w-1'>D</th>
-					<th scope='col' class='px-0 pb-2 text-center w-9 sm:w-20'>
-						<span class='hidden sm:inline'>Punkte</span>
-						<span class='sm:hidden'>Pt</span>
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				{
-					players.map((player) => (
-						<tr
-							class={`bg-white border-b dark:bg-gray-800 dark:border-gray-700 ${player.rank % 2 === 0 ? 'even:bg-gray-100' : ''}`}
-						>
-							<th
-								scope='row'
-								class='pl-2 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center'
-							>
-								{player.rank}
-							</th>
-							<td class='pl-2 py-2'>{player.name}</td>
-							<td class='px-0 py-2 text-center'>{player.games}</td>
-							<td class='px-0 py-2 text-center'>{player.wins}</td>
-							<td class='px-0 py-2 text-center'>{player.draws}</td>
-							<td class='px-0 py-2 text-center'>{player.losses}</td>
-							<td class='px-0 py-2 text-center' data-value={player.difference}>
-								{player.difference}
-							</td>
-							<td class='px-0 py-2 text-center'>{player.points}</td>
-						</tr>
-					))
-				}
-			</tbody>
-		</table>
+		<!-- image gallery -->
+		{
+			page.data.galleryImages && page.data.galleryImages.length > 0 && (
+				<ImageGallery images={page.data.galleryImages} />
+			)
+		}
 	</div>
 </BaseLayout>
-<script>
-	document.addEventListener('DOMContentLoaded', () => {
-		const cells = document.querySelectorAll('td[data-value]')
-		cells.forEach((cell) => {
-			const value = parseInt(cell.getAttribute('data-value'), 10)
-			if (value > 0) {
-				cell.classList.add('text-green-700')
-			} else if (value < 0) {
-				cell.classList.add('text-red-500')
-			}
-		})
-	})
-</script>
