@@ -6,6 +6,7 @@ import Code from '../components/mdx/Code.astro'
 import ImageEmbed from '@/components/mdx/ImageEmbed'
 import Team from '../components/Team.astro'
 import Scoreboard from '../components/mdx/Scoreboard.astro'
+import ContatForm from '../components/ContatForm.astro'
 
 const title = 'Kontakt'
 const page = await getPageByTitle(title)
@@ -52,4 +53,5 @@ const dummyTeam = [
 		</article>
 	</div>
 	<Team team={dummyTeam} title={teamTitle} description={teamDescription} />
+	<ContatForm />
 </BaseLayout>

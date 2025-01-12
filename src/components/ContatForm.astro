@@ -1,0 +1,114 @@
+---
+const accessKey = process.env.FORMS_PUBLIC_TOKEN
+---
+
+<section class='bg-white dark:bg-gray-900'>
+	<div class='py-8 lg:py-16 px-4 mx-auto max-w-screen-md'>
+		<h2
+			class='mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white'
+		>
+			Fragen? Kontaktiere uns!
+		</h2>
+		<p class='mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl'>
+			Wir freuen uns auf deine Nachricht und werden uns so schnell wie möglich bei dir melden.
+		</p>
+		<form method='POST' id='form' class='space-y-8'>
+			<input type='hidden' name='access_key' value={accessKey} />
+			<div>
+				<label for='email' class='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
+					>Deine E-Mail Adresse</label
+				>
+				<input
+					type='email'
+					id='email'
+					name='email'
+					class='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light'
+					placeholder='name@email.de'
+					required
+				/>
+			</div>
+			<div>
+				<label for='subject' class='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'
+					>Betreff</label
+				>
+				<input
+					type='text'
+					id='subject'
+					name='title'
+					class='block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light'
+					placeholder='Lass uns wissen um was es geht'
+					required
+				/>
+			</div>
+			<div class='sm:col-span-2'>
+				<label for='message' class='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400'
+					>Deine Nachricht</label
+				>
+				<textarea
+					id='message'
+					name='message'
+					rows='6'
+					class='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
+					placeholder='Hinterlasse eine Nachricht...'></textarea>
+			</div>
+			<button
+				type='submit'
+				class='py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-600 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
+				>Deine Nachricht absenden</button
+			>
+			<div id='result'></div>
+		</form>
+	</div>
+</section>
+<script is:inline>
+	const responseMessages = {
+		'Sorry, This message has been marked as spam by our server. Contact support if the issue persist.':
+			'Entschuldigung, diese Nachricht wurde von unseren Astropathen als Spam markiert. Bitte versuche es erneut.',
+		'Email sent successfully!': 'Deine Nachricht wurde über einen Astropathen versendet!'
+	}
+	const form = document.getElementById('form')
+	const result = document.getElementById('result')
+
+	form.addEventListener('submit', function (e) {
+		const formData = new FormData(form)
+		e.preventDefault()
+
+		const title = formData.get('title')
+		const subject = `Neue Nachricht über Siegen-Sustained: ${title}`
+		formData.append('subject', subject)
+		const object = Object.fromEntries(formData)
+		const json = JSON.stringify(object)
+
+		result.style.display = 'block'
+		result.innerHTML = 'Bitte warten...'
+
+		fetch('https://api.web3forms.com/submit', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json'
+			},
+			body: json
+		})
+			.then(async (response) => {
+				let json = await response.json()
+				if (response.status === 200) {
+					result.innerHTML = responseMessages[json.message] || 'E-Mail erfolgreich gesendet!'
+				} else {
+					result.innerHTML =
+						responseMessages[json.message] ||
+						'Ups, da ist etwas schief gelaufen. Bitte versuche es erneut.'
+				}
+			})
+			.catch((error) => {
+				console.log(error)
+				result.innerHTML = 'Ups, da ist etwas schief gelaufen. Bitte versuche es erneut.'
+			})
+			.then(function () {
+				form.reset()
+				setTimeout(() => {
+					result.style.display = 'none'
+				}, 6000)
+			})
+	})
+</script>
