@@ -25,6 +25,8 @@ jobs:
           TINA_SEARCH_TOKEN: ${{ secrets.TINA_SEARCH_TOKEN }}
         run: npm run tinacms:build
       - name: Install, build, and upload your site
+        env:
+          FORMS_PUBLIC_KEY: ${{ secrets.FORMS_PUBLIC_KEY }}
         uses: withastro/action@v3
   deploy:
     needs: build

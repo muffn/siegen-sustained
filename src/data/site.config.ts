@@ -7,6 +7,7 @@ interface SiteConfig {
 	ogLocale: string
 	shareMessage: string
 	paginationSize: number
+	formsPublicKey: string
 }
 
 export const siteConfig: SiteConfig = {
@@ -17,5 +18,6 @@ export const siteConfig: SiteConfig = {
 	lang: 'de-DE',
 	ogLocale: 'de_DE',
 	shareMessage: 'Diesen Beitrag teilen', // Message to share a post on social media
-	paginationSize: 6 // Number of posts per page
+	paginationSize: 6, // Number of posts per page
+	formsPublicKey: process.env.FORMS_PUBLIC_KEY || 'key_not_found'
 }
