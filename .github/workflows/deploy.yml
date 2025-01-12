@@ -23,7 +23,6 @@ jobs:
           TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
           TINA_SEARCH_TOKEN: ${{ secrets.TINA_SEARCH_TOKEN }}
-          PUBLIC_FORMS_TOKEN: ${{ secrets.PUBLIC_FORMS_TOKEN }}
         run: npm run tinacms:build
       - name: Install, build, and upload your site
         uses: withastro/action@v3

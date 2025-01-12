@@ -8,11 +8,6 @@ import { siteConfig } from './src/data/site.config.ts'
 // https://astro.build/config
 export default defineConfig({
 	site: siteConfig.site,
-	vite: {
-		define: {
-			'process.env.PUBLIC_FORMS_TOKEN': JSON.stringify(process.env.PUBLIC_FORMS_TOKEN)
-		}
-	},
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
 		drafts: true,
