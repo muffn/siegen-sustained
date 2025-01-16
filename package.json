@@ -32,7 +32,7 @@
 		"pre-commit": "lint-staged"
 	},
 	"dependencies": {
-		"@astrojs/rss": "^4.0.10",
+		"@astrojs/rss": "^4.0.11",
 		"astro": "^5.1.2",
 		"astro-font": "^0.1.81",
 		"photoswipe": "^5.4.4",
