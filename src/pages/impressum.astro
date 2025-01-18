@@ -1,0 +1,28 @@
+---
+import TitlePage from '@/components/TitlePage'
+import BaseLayout from '@/layouts/BaseLayout'
+import { getPageByTitle } from '../utils/post'
+import Code from '../components/mdx/Code.astro'
+import ImageEmbed from '@/components/mdx/ImageEmbed'
+import Scoreboard from '../components/mdx/Scoreboard.astro'
+
+const title = 'Impressum'
+const page = await getPageByTitle(title)
+
+if (!page) {
+	return Astro.redirect('/404', 404)
+}
+
+const { Content } = await page.render()
+---
+
+<BaseLayout title={page.data.title}>
+	<TitlePage title={page.data.title} />
+	<div>
+		<article class='max-w-full w-full'>
+			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
+				<Content components={{ pre: Code, table: Scoreboard, ImageEmbed }} />
+			</div>
+		</article>
+	</div>
+</BaseLayout>
