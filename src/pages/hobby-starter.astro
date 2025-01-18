@@ -5,6 +5,7 @@ import { getPageByTitle } from '../utils/post'
 import Code from '../components/mdx/Code.astro'
 import ImageEmbed from '@/components/mdx/ImageEmbed'
 import Scoreboard from '../components/mdx/Scoreboard.astro'
+import Team from '../components/Team.astro'
 
 const title = 'Hobby Starter'
 const page = await getPageByTitle(title)
@@ -14,6 +15,8 @@ if (!page) {
 }
 
 const { Content } = await page.render()
+const teamTitle = 'Unser Team'
+const teamDescription = 'Unser Team besteht aus echten Menschen, die echte Dinge tun.'
 ---
 
 <BaseLayout title={page.data.title}>
@@ -25,4 +28,5 @@ const { Content } = await page.render()
 			</div>
 		</article>
 	</div>
+	<Team title={teamTitle} description={teamDescription} pageTitle={title} />
 </BaseLayout>

@@ -1,5 +1,6 @@
-import { CATEGORIES } from '../src/data/categories.ts'
+import { CATEGORIES } from '@/data/categories.ts'
 import { defineConfig } from 'tinacms'
+import { PERSON_PAGES } from '@/data/person-pages.ts'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main'
@@ -206,6 +207,44 @@ export default defineConfig({
 						name: 'galleryImages',
 						list: true,
 						description: 'Bilder, die in einer Galerie am Ende der Seite angezeigt werden'
+					}
+				]
+			},
+			{
+				name: 'person',
+				label: 'Personen',
+				path: 'src/content/person',
+				format: 'mdx',
+				fields: [
+					{
+						type: 'image',
+						label: 'Profilbild',
+						name: 'profileImage',
+						description: 'Das Profilbild der Person',
+						required: true
+					},
+					{
+						type: 'string',
+						name: 'name',
+						label: 'Name',
+						description: 'Der Name der Person',
+						required: true
+					},
+					{
+						type: 'string',
+						name: 'description',
+						label: 'Beschreibung',
+						description: 'Eine kurze Beschreibung der Person',
+						required: true
+					},
+					{
+						type: 'string',
+						required: true,
+						name: 'category',
+						label: 'Kategorie',
+						description: 'In welchen Bereichen soll die Person angezeigt werden?',
+						list: true,
+						options: [...PERSON_PAGES]
 					}
 				]
 			}

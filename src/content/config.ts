@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content'
 import { CATEGORIES } from '../data/categories'
+import { PERSON_PAGES } from '@/data/person-pages.ts'
 
 const blog = defineCollection({
 	// Type-check frontmatter using a schema
@@ -29,4 +30,14 @@ const page = defineCollection({
 		})
 })
 
-export const collections = { blog, page }
+const person = defineCollection({
+	schema: ({ image }) =>
+		z.object({
+			profileImage: image().optional(),
+			name: z.string().max(80),
+			description: z.string(),
+			category: z.array(z.enum(PERSON_PAGES))
+		})
+})
+
+export const collections = { blog, page, person }

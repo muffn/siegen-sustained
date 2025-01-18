@@ -6,6 +6,7 @@ import Code from '../components/mdx/Code.astro'
 import ImageEmbed from '@/components/mdx/ImageEmbed'
 import ImageGallery from '../components/ImageGallery.astro'
 import Scoreboard from '@/components/mdx/Scoreboard'
+import Team from '../components/Team.astro'
 
 const title = 'Liga'
 const page = await getPageByTitle(title)
@@ -15,6 +16,8 @@ if (!page) {
 }
 
 const { Content } = await page.render()
+const teamTitle = 'Unser Team'
+const teamDescription = 'Unser Team besteht aus echten Menschen, die echte Dinge tun.'
 ---
 
 <BaseLayout title={page.data.title}>
@@ -25,6 +28,7 @@ const { Content } = await page.render()
 				<Content components={{ pre: Code, table: Scoreboard, ImageEmbed }} />
 			</div>
 		</article>
+		<Team title={teamTitle} description={teamDescription} pageTitle={title} />
 		<!-- image gallery -->
 		{
 			page.data.galleryImages && page.data.galleryImages.length > 0 && (

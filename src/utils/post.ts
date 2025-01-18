@@ -23,6 +23,13 @@ export const getPageByTitle = async (title: string) => {
 	return pages.find((page) => page.data.id === title)
 }
 
+export const getPersonsByTitle = async (
+	title: 'Community' | 'Hobby Starter' | 'Liga' | 'Kontakt'
+) => {
+	const persons = await getCollection('person')
+	return persons.filter((person) => person.data.category.includes(title))
+}
+
 export const getTags = async () => {
 	const posts = await getCollection('blog')
 	const tags = new Set()

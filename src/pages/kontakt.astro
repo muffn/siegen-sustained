@@ -19,28 +19,6 @@ const { Content } = await page.render()
 
 const teamTitle = 'Unser Team'
 const teamDescription = 'Unser Team besteht echten Menschen, die echte Dinge tun.'
-const dummyTeam = [
-	{
-		name: 'John Doe',
-		role: 'Atmet Luft',
-		image: '/public/images/600x400.png'
-	},
-	{
-		name: 'Jane Smith',
-		role: 'Trinkt Wasser',
-		image: '/public/images/600x400.png'
-	},
-	{
-		name: 'Alice Johnson',
-		role: 'Isst Essen',
-		image: '/public/images/600x400.png'
-	},
-	{
-		name: 'Bob Brown',
-		role: 'Schläft',
-		image: '/public/images/600x400.png'
-	}
-]
 ---
 
 <BaseLayout title={page.data.title}>
@@ -52,6 +30,6 @@ const dummyTeam = [
 			</div>
 		</article>
 	</div>
-	<Team team={dummyTeam} title={teamTitle} description={teamDescription} />
+	<Team title={teamTitle} description={teamDescription} pageTitle={title} />
 	<ContatForm />
 </BaseLayout>
