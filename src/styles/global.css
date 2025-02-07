@@ -57,6 +57,8 @@
 	}
 }
 
+@source "safelist.txt";
+
 .glass {
 	background: rgba(57, 56, 56, 0.52);
 	backdrop-filter: blur(13px) saturate(150%);
