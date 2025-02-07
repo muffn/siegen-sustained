@@ -62,7 +62,10 @@ export default defineConfig({
 						type: 'datetime',
 						name: 'pubDate',
 						label: 'Veröffentlichungsdatum',
-						required: true
+						required: true,
+						ui: {
+							utc: true
+						}
 					},
 					{
 						name: 'draft',
