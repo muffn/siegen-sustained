@@ -10,23 +10,30 @@ interface Props {
 }
 
 const { images } = Astro.props as Props
+
+const hasVertical = images.some((image) => image.height > image.width)
+const hasHorizontal = images.some((image) => image.width > image.height)
+const mixedOrientations = hasVertical && hasHorizontal
+const gridColsClass = mixedOrientations ? 'md:grid-cols-3' : 'md:grid-cols-2'
 ---
 
 <h2 class='font-bold text-lg dark:text-white mb-6'>Bildergalerie</h2>
 <div
-	class='grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px] pswp-gallery'
+	class={`grid grid-cols-1 ${gridColsClass} gap-4 md:auto-rows-[200px] pswp-gallery`}
 	id='image-gallery'
 >
 	{
 		images.map((image, index) => {
 			const isVertical = image.height > image.width
+			const colSpan = mixedOrientations ? (isVertical ? 'md:col-span-1' : 'md:col-span-2') : ''
+			const rowSpan = mixedOrientations || !hasHorizontal ? 'md:row-span-3' : ''
 			return (
 				<a
 					href={image.src}
 					data-pswp-width={image.width}
 					data-pswp-height={image.height}
 					target='_blank'
-					class={`rounded-lg ${isVertical ? 'col-span-1 row-span-2' : 'col-span-2 row-span-2'}`}
+					class={`rounded-lg ${colSpan} ${rowSpan}`}
 				>
 					<img src={image.src} alt={`image ${index + 1}`} class='w-full h-full object-cover' />
 				</a>
