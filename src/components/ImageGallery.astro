@@ -13,18 +13,25 @@ const { images } = Astro.props as Props
 ---
 
 <h2 class='font-bold text-lg dark:text-white mb-6'>Bildergalerie</h2>
-<div class='grid grid-cols-1 md:grid-cols-2 gap-4 pswp-gallery' id='image-gallery'>
+<div
+	class='grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px] pswp-gallery'
+	id='image-gallery'
+>
 	{
-		images.map((image, index) => (
-			<a
-				href={image.src}
-				data-pswp-width={image.width}
-				data-pswp-height={image.height}
-				target='_blank'
-			>
-				<img src={image.src} alt={`image ${index + 1}`} class='rounded-lg' />
-			</a>
-		))
+		images.map((image, index) => {
+			const isVertical = image.height > image.width
+			return (
+				<a
+					href={image.src}
+					data-pswp-width={image.width}
+					data-pswp-height={image.height}
+					target='_blank'
+					class={`rounded-lg ${isVertical ? 'col-span-1 row-span-2' : 'col-span-2 row-span-2'}`}
+				>
+					<img src={image.src} alt={`image ${index + 1}`} class='w-full h-full object-cover' />
+				</a>
+			)
+		})
 	}
 </div><br />
 
