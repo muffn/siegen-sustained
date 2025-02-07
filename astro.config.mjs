@@ -1,13 +1,14 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
-import tailwind from '@astrojs/tailwind'
 import { remarkReadingTime } from './src/utils/readTime.ts'
 import { siteConfig } from './src/data/site.config.ts'
+import tailwindcss from '@tailwindcss/vite'
 
 // https://astro.build/config
 export default defineConfig({
 	site: siteConfig.site,
+	vite: { plugins: [tailwindcss()] },
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
 		drafts: true,
@@ -28,7 +29,6 @@ export default defineConfig({
 			},
 			drafts: true
 		}),
-		sitemap(),
-		tailwind()
+		sitemap()
 	]
 })
