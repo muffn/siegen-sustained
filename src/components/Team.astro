@@ -49,11 +49,11 @@ const persons = (await getPersonsByTitle(props.pageTitle)).map((person) => ({
 									alt={`Profilbild von ${person.name}`}
 								/>
 
-								<h1 class='mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white'>
+								<h1 class='mt-4 text-2xl text-center font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white'>
 									{person.name}
 								</h1>
 
-								<p class='mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300'>
+								<p class='mt-2 text-gray-500 text-center capitalize dark:text-gray-300 group-hover:text-gray-300'>
 									{person.description}
 								</p>
 							</div>
