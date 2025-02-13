@@ -2,10 +2,7 @@
 import TitlePage from '@/components/TitlePage'
 import BaseLayout from '@/layouts/BaseLayout'
 import { getPageByTitle } from '../utils/post'
-import Code from '../components/mdx/Code.astro'
-import ImageEmbed from '@/components/mdx/ImageEmbed'
 import ImageGallery from '../components/ImageGallery.astro'
-import Scoreboard from '@/components/mdx/Scoreboard'
 import Team from '../components/Team.astro'
 import LeagueLobsterEmbed from '../components/LeagueLobsterEmbed.astro'
 
@@ -29,7 +26,7 @@ const teamDescription = 'Unser Team besteht aus echten Menschen, die echte Dinge
 				<LeagueLobsterEmbed scheduleId='1961811' languageCode='de' />
 			</div>
 		</article>
-		<Team title={teamTitle} description={teamDescription} pageTitle={title} />
+		<Team description={teamDescription} pageTitle={title} />
 		<!-- image gallery -->
 		{
 			page.data.galleryImages && page.data.galleryImages.length > 0 && (
