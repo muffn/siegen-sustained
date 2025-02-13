@@ -1,0 +1,6 @@
+---
+const { scheduleId, languageCode } = Astro.props
+---
+
+<div id='ll-schedule-embed' data-schedule-id={scheduleId} data-language-code={languageCode}></div>
+<script type='text/javascript' src='//scheduler.leaguelobster.com/static/embed.js'></script>

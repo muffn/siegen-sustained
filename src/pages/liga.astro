@@ -7,6 +7,7 @@ import ImageEmbed from '@/components/mdx/ImageEmbed'
 import ImageGallery from '../components/ImageGallery.astro'
 import Scoreboard from '@/components/mdx/Scoreboard'
 import Team from '../components/Team.astro'
+import LeagueLobsterEmbed from '../components/LeagueLobsterEmbed.astro'
 
 const title = 'Liga'
 const page = await getPageByTitle(title)
@@ -25,7 +26,7 @@ const teamDescription = 'Unser Team besteht aus echten Menschen, die echte Dinge
 	<div>
 		<article class='max-w-full w-full'>
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
-				<Content components={{ pre: Code, table: Scoreboard, ImageEmbed }} />
+				<LeagueLobsterEmbed scheduleId='1961811' languageCode='de' />
 			</div>
 		</article>
 		<Team title={teamTitle} description={teamDescription} pageTitle={title} />
