@@ -68,6 +68,14 @@ const posts = page.data
 			</p>
 		)
 	}
+	{
+		params.category === 'eventkalender' && (
+			<p class='text-justify'>
+				Hier findest Du Eventankündigungen und -berichte über Veranstaltungen der Siegener
+				Community.
+			</p>
+		)
+	}
 	<ListPosts posts={posts} />
 	<Pagination page={page} />
 </BaseLayout>
